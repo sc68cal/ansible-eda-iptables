@@ -1,0 +1,10 @@
+{
+  "rules": [
+    {
+      "source": "192.168.1.1",
+      "destination": "192.168.2.1",
+      "protocol": "tcp",
+      "destination_port": 22
+    }
+  ]
+}

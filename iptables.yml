@@ -1,0 +1,18 @@
+---
+- hosts: localhost
+  connection: local
+
+  tasks:
+
+    - name: Print out payload that was recieved
+      debug:
+        var: event.payload
+
+    - name: Create iptables rules for payload
+      ansible.builtin.iptables:
+        chain: INPUT
+        protocol: "{{ item.protocol }}"
+        source: "{{ item.source }}"
+        destination: "{{ item.destination }}"
+        destination_port: "{{ item.destination_port }}"
+      loop: "{{ event.payload.rules }}"

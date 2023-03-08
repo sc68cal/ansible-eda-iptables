@@ -1,0 +1,15 @@
+---
+- name: Rulebook for webhook
+
+  hosts: all
+
+  sources:
+    - ansible.eda.webhook:
+        port: 5000
+
+  rules:
+    - name: "iptables webhook"
+      condition: event.payload.rules != ''
+      action:
+        run_playbook:
+          name: 'iptables.yml'
