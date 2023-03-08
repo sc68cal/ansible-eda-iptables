@@ -1,10 +1,12 @@
+# Running the webhook server
 
+`ansible-rulebook --rulebook rules.yml -i inventory.yml --verbose`
 
 
 ### Setting JAVA_HOME for use with jpy
 
 `ansible-rulebook` requires Java to operate. As part of the installation or development,
-you need to set $JAVA_HOME correctly.
+you need to set `$JAVA_HOME` correctly.
 
 For MacOS, you can use `homebrew` to install `openjdk` - however you must set JAVA_HOME
 to be a path that is a bit more explicit than usual, in order for [jpy][jpy] to correctly function.
